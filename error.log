@@ -17,3 +17,4 @@
 {"level":"error","message":"Error processing the scraping request: Αποτυχία ανάκτησης του περιεχομένου της ιστοσελίδας.","timestamp":"2025-01-14T14:34:50.036Z"}
 {"level":"error","message":"(node:8676) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)","timestamp":"2025-01-14T14:39:54.529Z"}
 {"level":"error","message":"(node:14520) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)","timestamp":"2025-01-14T14:56:38.358Z"}
+{"level":"error","message":"(node:12388) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)","timestamp":"2025-01-14T15:04:43.827Z"}

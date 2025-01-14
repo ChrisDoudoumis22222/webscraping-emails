@@ -1,6 +1,6 @@
 // server.js
 
-require('dotenv').config(); // Load environment variables from .env
+// Removed dotenv since we're hardcoding the API key
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -58,11 +58,12 @@ const limiter = rateLimit({
 
 app.use(limiter);
 
-// **Groq AI API Key from Environment Variables**
-const GROQ_API_KEY = process.env.GROQ_API_KEY;
+// **Hardcoded Groq AI API Key**
+const GROQ_API_KEY = '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';
 
+// Verify that the API key is present
 if (!GROQ_API_KEY) {
-  console.error('Σφάλμα: Το GROQ_API_KEY δεν είναι ορισμένο στις μεταβλητές περιβάλλοντος.');
+  console.error('Σφάλμα: Το GROQ_API_KEY δεν είναι ορισμένο.');
   process.exit(1); // Exit the application if API key is missing
 }
 

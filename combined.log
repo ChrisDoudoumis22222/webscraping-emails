@@ -137,3 +137,37 @@
 {"level":"info","message":"Cleaned AI response: {\n  \"phoneNumbers\": [\"2102828001\"],\n  \"addresses\": [],\n  \"summary\": \"The text appears to be a promotional page for a used car sales company, highlighting the benefits of purchasing from them, including warranty, flexible inspection options, free transportation, and a return policy.\"\n}","timestamp":"2025-01-14T14:56:53.328Z"}
 {"level":"info","message":"Parsed AI response: [object Object]","timestamp":"2025-01-14T14:56:53.329Z"}
 {"level":"info","message":"Successfully processed scrape request and responded to the client.","timestamp":"2025-01-14T14:56:53.333Z"}
+{"level":"error","message":"(node:12388) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)","timestamp":"2025-01-14T15:04:43.827Z"}
+{"level":"info","message":"Ο διακομιστής τρέχει στη θύρα 3000","timestamp":"2025-01-14T15:04:43.830Z"}
+{"level":"info","message":"Λήψη αιτήματος για scraping του URL: https://www.autovalue.gr/","timestamp":"2025-01-14T15:04:53.165Z"}
+{"level":"info","message":"Ξεκινώντας το Puppeteer για την ανάκτηση: https://www.autovalue.gr/","timestamp":"2025-01-14T15:04:53.167Z"}
+{"level":"info","message":"Μεταβαίνουμε στην ιστοσελίδα...","timestamp":"2025-01-14T15:04:54.119Z"}
+{"level":"info","message":"Ανάκτηση περιεχομένου HTML...","timestamp":"2025-01-14T15:04:55.987Z"}
+{"level":"info","message":"Επιτυχής ανάκτηση περιεχομένου από: https://www.autovalue.gr/","timestamp":"2025-01-14T15:04:56.284Z"}
+{"level":"info","message":"HTML περιεχόμενο ανακτήθηκε επιτυχώς.","timestamp":"2025-01-14T15:04:56.285Z"}
+{"level":"info","message":"Εξαγωγή κειμένου από το HTML.","timestamp":"2025-01-14T15:04:56.390Z"}
+{"level":"info","message":"Εξαγωγή κειμένου από το HTML ολοκληρώθηκε.","timestamp":"2025-01-14T15:04:56.391Z"}
+{"level":"info","message":"Εξαγωγή δεδομένων χρησιμοποιώντας regex ολοκληρώθηκε.","timestamp":"2025-01-14T15:04:56.394Z"}
+{"level":"info","message":"Δεδομένα εξαγωγής (Regex): [object Object]","timestamp":"2025-01-14T15:04:56.395Z"}
+{"level":"info","message":"Το περιεχόμενο του κειμένου περιορίστηκε για να πληροί το μέγιστο όριο χαρακτήρων.","timestamp":"2025-01-14T15:04:56.396Z"}
+{"level":"info","message":"Αποστολή προτροπής στο Groq AI API.","timestamp":"2025-01-14T15:04:56.396Z"}
+{"level":"info","message":"Λήψη απάντησης από το Groq AI API.","timestamp":"2025-01-14T15:04:57.238Z"}
+{"level":"info","message":"Καθαρισμένη απάντηση από το AI: {\n  \"phoneNumbers\": [\"2102828001\"],\n  \"addresses\": [],\n  \"summary\": \"Η Autovalue προσφέρει αξιόπιστα μεταχειρισμένα αυτοκίνητα με εγγύηση, δωρεάν μεταφορά και δυνατότητα επιστροφής. anche προσφέρει online δάνειο από τη Santander για την αγορά αυτοκινήτων.\"\n}","timestamp":"2025-01-14T15:04:57.239Z"}
+{"level":"info","message":"Αποδεσμευμένη απάντηση από το AI: [object Object]","timestamp":"2025-01-14T15:04:57.240Z"}
+{"level":"info","message":"Απάντηση αποσταλεί επιτυχώς στον πελάτη.","timestamp":"2025-01-14T15:04:57.245Z"}
+{"level":"info","message":"Λήψη αιτήματος για scraping του URL: https://www.aspis-realestate.gr/el/home","timestamp":"2025-01-14T15:05:03.541Z"}
+{"level":"info","message":"Ξεκινώντας το Puppeteer για την ανάκτηση: https://www.aspis-realestate.gr/el/home","timestamp":"2025-01-14T15:05:03.542Z"}
+{"level":"info","message":"Μεταβαίνουμε στην ιστοσελίδα...","timestamp":"2025-01-14T15:05:03.993Z"}
+{"level":"info","message":"Ανάκτηση περιεχομένου HTML...","timestamp":"2025-01-14T15:05:07.707Z"}
+{"level":"info","message":"Επιτυχής ανάκτηση περιεχομένου από: https://www.aspis-realestate.gr/el/home","timestamp":"2025-01-14T15:05:08.172Z"}
+{"level":"info","message":"HTML περιεχόμενο ανακτήθηκε επιτυχώς.","timestamp":"2025-01-14T15:05:08.172Z"}
+{"level":"info","message":"Εξαγωγή κειμένου από το HTML.","timestamp":"2025-01-14T15:05:08.440Z"}
+{"level":"info","message":"Εξαγωγή κειμένου από το HTML ολοκληρώθηκε.","timestamp":"2025-01-14T15:05:08.441Z"}
+{"level":"info","message":"Εξαγωγή δεδομένων χρησιμοποιώντας regex ολοκληρώθηκε.","timestamp":"2025-01-14T15:05:08.470Z"}
+{"level":"info","message":"Δεδομένα εξαγωγής (Regex): [object Object]","timestamp":"2025-01-14T15:05:08.471Z"}
+{"level":"info","message":"Το περιεχόμενο του κειμένου περιορίστηκε για να πληροί το μέγιστο όριο χαρακτήρων.","timestamp":"2025-01-14T15:05:08.471Z"}
+{"level":"info","message":"Αποστολή προτροπής στο Groq AI API.","timestamp":"2025-01-14T15:05:08.471Z"}
+{"level":"info","message":"Λήψη απάντησης από το Groq AI API.","timestamp":"2025-01-14T15:05:09.151Z"}
+{"level":"info","message":"Καθαρισμένη απάντηση από το AI: {\n  \"phoneNumbers\": [],\n  \"addresses\": [],\n  \"summary\": \"Το κείμενο περιγράφει την ιστοσελίδα μιας εταιρείας που χρησιμοποιεί cookies για την βελτίωση της εμπειρίας περιήγησης, την εξατομίκευση περιεχομένου και διαφημίσεων. Παρέχει επίσης στοιχεία για το δίκτυο καταστημάτων, ακίνητα, ανάθεση, franchise, ευκαιρίες καριέρας και επικοινωνίας.\"\n}","timestamp":"2025-01-14T15:05:09.152Z"}
+{"level":"info","message":"Αποδεσμευμένη απάντηση από το AI: [object Object]","timestamp":"2025-01-14T15:05:09.153Z"}
+{"level":"info","message":"Απάντηση αποσταλεί επιτυχώς στον πελάτη.","timestamp":"2025-01-14T15:05:09.154Z"}
