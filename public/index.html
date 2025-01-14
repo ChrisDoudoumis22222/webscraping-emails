@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Web Scraper and Data Extractor</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --background: 0 0% 100%;
+            --foreground: 222.2 84% 4.9%;
+            --card: 0 0% 100%;
+            --card-foreground: 222.2 84% 4.9%;
+            --popover: 0 0% 100%;
+            --popover-foreground: 222.2 84% 4.9%;
+            --primary: 221.2 83.2% 53.3%;
+            --primary-foreground: 210 40% 98%;
+            --secondary: 210 40% 96.1%;
+            --secondary-foreground: 222.2 47.4% 11.2%;
+            --muted: 210 40% 96.1%;
+            --muted-foreground: 215.4 16.3% 46.9%;
+            --accent: 210 40% 96.1%;
+            --accent-foreground: 222.2 47.4% 11.2%;
+            --destructive: 0 84.2% 60.2%;
+            --destructive-foreground: 210 40% 98%;
+            --border: 214.3 31.8% 91.4%;
+            --input: 214.3 31.8% 91.4%;
+            --ring: 221.2 83.2% 53.3%;
+            --radius: 0.5rem;
+        }
+
+        .dark {
+            --background: 222.2 84% 4.9%;
+            --foreground: 210 40% 98%;
+            --card: 222.2 84% 4.9%;
+            --card-foreground: 210 40% 98%;
+            --popover: 222.2 84% 4.9%;
+            --popover-foreground: 210 40% 98%;
+            --primary: 217.2 91.2% 59.8%;
+            --primary-foreground: 222.2 47.4% 11.2%;
+            --secondary: 217.2 32.6% 17.5%;
+            --secondary-foreground: 210 40% 98%;
+            --muted: 217.2 32.6% 17.5%;
+            --muted-foreground: 215 20.2% 65.1%;
+            --accent: 217.2 32.6% 17.5%;
+            --accent-foreground: 210 40% 98%;
+            --destructive: 0 62.8% 30.6%;
+            --destructive-foreground: 210 40% 98%;
+            --border: 217.2 32.6% 17.5%;
+            --input: 217.2 32.6% 17.5%;
+            --ring: 224.3 76.3% 48%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+            line-height: 1.5;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .card {
+            background-color: hsl(var(--card));
+            border-radius: var(--radius);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: hsl(var(--primary));
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s, color 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
+        }
+
+        .btn-primary:hover {
+            background-color: hsl(var(--primary) / 0.9);
+        }
+
+        .btn-ghost {
+            background-color: transparent;
+            color: hsl(var(--foreground));
+        }
+
+        .btn-ghost:hover {
+            background-color: hsl(var(--accent));
+        }
+
+        .input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid hsl(var(--border));
+            border-radius: var(--radius);
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+        }
+
+        .form-group {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .spinner {
+            border: 4px solid hsl(var(--muted));
+            border-top: 4px solid hsl(var(--primary));
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 2rem auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .message {
+            padding: 1rem;
+            border-radius: var(--radius);
+            margin-bottom: 1rem;
+        }
+
+        .error {
+            background-color: hsl(var(--destructive) / 0.1);
+            color: hsl(var(--destructive));
+        }
+
+        .success {
+            background-color: hsl(142.1 76.2% 36.3% / 0.1);
+            color: hsl(142.1 76.2% 36.3%);
+        }
+
+        .result-section {
+            margin-top: 1.5rem;
+        }
+
+        .result-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-list {
+            list-style-type: none;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: hsl(var(--muted));
+            padding: 0.5rem;
+            border-radius: var(--radius);
+            margin-bottom: 0.5rem;
+        }
+
+        .icon {
+            width: 1.2em;
+            height: 1.2em;
+        }
+
+        @media (max-width: 640px) {
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .form-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h1 class="card-title">Advanced Web Scraper & Data Extractor</h1>
+                <button id="theme-toggle" class="btn btn-ghost">
+                    <i data-lucide="moon" class="icon"></i>
+                </button>
+            </div>
+            <form id="scrape-form">
+                <div class="form-group">
+                    <input type="url" id="url-input" class="input" placeholder="https://example.com" required>
+                    <button type="submit" class="btn btn-primary">
+                        Scrape
+                        <i data-lucide="search" class="icon"></i>
+                    </button>
+                </div>
+            </form>
+
+            <div id="loader" class="spinner" style="display: none;"></div>
+
+            <!-- Error/Succcess Messages -->
+            <div id="error-message" class="message error" style="display: none;">
+                <span id="error-text"></span>
+                <!-- Retry Button -->
+                <button id="retry-btn" class="btn btn-primary" style="display:none; margin-left: 8px;">
+                    Retry
+                </button>
+            </div>
+            <div id="success-message" class="message success" style="display: none;"></div>
+
+            <div id="results" style="display: none;">
+                <div class="result-section">
+                    <h2 class="result-title">
+                        <i data-lucide="mail" class="icon"></i>
+                        Emails
+                    </h2>
+                    <ul id="emails-list" class="result-list"></ul>
+                </div>
+                <div class="result-section">
+                    <h2 class="result-title">
+                        <i data-lucide="phone" class="icon"></i>
+                        Phone Numbers
+                    </h2>
+                    <ul id="phones-list" class="result-list"></ul>
+                </div>
+                <div class="result-section">
+                    <h2 class="result-title">
+                        <i data-lucide="map-pin" class="icon"></i>
+                        Addresses
+                    </h2>
+                    <ul id="addresses-list" class="result-list"></ul>
+                </div>
+                <div class="result-section">
+                    <h2 class="result-title">
+                        <i data-lucide="file-text" class="icon"></i>
+                        Summary
+                    </h2>
+                    <p id="summary-text"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // DOM elements
+        const themeToggle = document.getElementById('theme-toggle');
+        const scrapeForm = document.getElementById('scrape-form');
+        const urlInput = document.getElementById('url-input');
+        const loader = document.getElementById('loader');
+        const errorMessage = document.getElementById('error-message');
+        const errorText = document.getElementById('error-text');
+        const retryBtn = document.getElementById('retry-btn');
+        const successMessage = document.getElementById('success-message');
+        const results = document.getElementById('results');
+        const emailsList = document.getElementById('emails-list');
+        const phonesList = document.getElementById('phones-list');
+        const addressesList = document.getElementById('addresses-list');
+        const summaryText = document.getElementById('summary-text');
+
+        // Store the last used URL for retry
+        let lastUrl = '';
+
+        // Theme toggle functionality
+        let isDarkMode = false;
+        themeToggle.addEventListener('click', () => {
+            isDarkMode = !isDarkMode;
+            document.body.classList.toggle('dark', isDarkMode);
+            themeToggle.innerHTML = isDarkMode
+                ? '<i data-lucide="sun" class="icon"></i>'
+                : '<i data-lucide="moon" class="icon"></i>';
+            lucide.createIcons();
+        });
+
+        // Helper functions
+        function showLoader() {
+            loader.style.display = 'block';
+        }
+
+        function hideLoader() {
+            loader.style.display = 'none';
+        }
+
+        function showError(message) {
+            errorText.textContent = message;
+            errorMessage.style.display = 'block';
+            successMessage.style.display = 'none';
+            // Show the Retry button
+            retryBtn.style.display = 'inline-block';
+        }
+
+        function showSuccess(message) {
+            successMessage.textContent = message;
+            successMessage.style.display = 'block';
+            errorMessage.style.display = 'none';
+            retryBtn.style.display = 'none';
+        }
+
+        function clearMessages() {
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+            retryBtn.style.display = 'none';
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showSuccess('Copied to clipboard!');
+                setTimeout(clearMessages, 3000);
+            }, (err) => {
+                console.error('Could not copy text: ', err);
+                showError('Failed to copy to clipboard');
+            });
+        }
+
+        function createResultItem(text) {
+            const li = document.createElement('li');
+            li.className = 'result-item';
+            li.innerHTML = `
+                <span>${text}</span>
+                <button class="btn btn-ghost" onclick="copyToClipboard('${text}')">
+                    <i data-lucide="copy" class="icon"></i>
+                </button>
+            `;
+            return li;
+        }
+
+        function displayResults(data) {
+            results.style.display = 'block';
+            emailsList.innerHTML = '';
+            phonesList.innerHTML = '';
+            addressesList.innerHTML = '';
+
+            data.extractedData.emails.forEach(email => {
+                emailsList.appendChild(createResultItem(email));
+            });
+
+            data.extractedData.phoneNumbers.forEach(phone => {
+                phonesList.appendChild(createResultItem(phone));
+            });
+
+            data.extractedData.addresses.forEach(address => {
+                addressesList.appendChild(createResultItem(address));
+            });
+
+            summaryText.textContent = data.summary || 'No summary available.';
+            lucide.createIcons();
+        }
+
+        // Core scraping logic in a reusable function
+        async function doScrape(url) {
+            try {
+                const response = await fetch('/scrape', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ url })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.error || 'An error occurred while processing your request.');
+                }
+
+                // Display results
+                displayResults(data);
+            } catch (error) {
+                showError(error.message);
+            } finally {
+                hideLoader();
+            }
+        }
+
+        // Handle form submission
+        scrapeForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            clearMessages();
+            results.style.display = 'none';
+            showLoader();
+
+            lastUrl = urlInput.value.trim();
+            if (!lastUrl) {
+                showError('Please enter a valid URL.');
+                hideLoader();
+                return;
+            }
+
+            doScrape(lastUrl);
+        });
+
+        // Retry button click
+        retryBtn.addEventListener('click', () => {
+            // Clear old messages & results
+            clearMessages();
+            results.style.display = 'none';
+            showLoader();
+
+            if (!lastUrl) {
+                showError('Please enter a valid URL.');
+                hideLoader();
+                return;
+            }
+
+            doScrape(lastUrl);
+        });
+    </script>
+</body>
+</html>

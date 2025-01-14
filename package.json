@@ -1,0 +1,35 @@
+{
+  "name": "webscraping-emails",
+  "version": "1.0.0",
+  "description": "A web scraping application for extracting emails, phone numbers, and addresses.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "npm install",
+    "postinstall": "puppeteer install --force",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "web scraping",
+    "emails",
+    "puppeteer",
+    "express"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "body-parser": "^1.20.3",
+    "cheerio": "^1.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "groq-sdk": "^0.12.0",
+    "helmet": "^8.0.0",
+    "morgan": "^1.10.0",
+    "puppeteer": "^24.0.0",
+    "webscraping-emails": "file:",
+    "winston": "^3.17.0"
+  }
+}

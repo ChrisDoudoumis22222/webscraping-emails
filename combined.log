@@ -1,0 +1,125 @@
+{"level":"error","message":"(node:21584) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)","timestamp":"2025-01-13T12:00:03.645Z"}
+{"level":"info","message":"Server is running on http://localhost:3000","timestamp":"2025-01-13T12:00:03.651Z"}
+{"level":"info","message":"Extracted Data: [object Object]","timestamp":"2025-01-13T12:00:19.828Z"}
+{"level":"info","message":"Extracted Data: [object Object]","timestamp":"2025-01-13T12:00:30.108Z"}
+{"level":"info","message":"Extracted Data: [object Object]","timestamp":"2025-01-13T12:00:35.292Z"}
+{"level":"info","message":"Extracted Data: [object Object]","timestamp":"2025-01-13T12:01:07.776Z"}
+{"level":"info","message":"Extracted Data: [object Object]","timestamp":"2025-01-13T12:01:41.098Z"}
+{"level":"info","message":"Extracted Data: [object Object]","timestamp":"2025-01-13T12:01:48.349Z"}
+{"level":"info","message":"Extracted Data: [object Object]","timestamp":"2025-01-13T12:01:52.610Z"}
+{"level":"error","message":"(node:39388) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)","timestamp":"2025-01-13T12:04:20.076Z"}
+{"level":"info","message":"Server is running on http://localhost:3000","timestamp":"2025-01-13T12:04:20.088Z"}
+{"level":"info","message":"Extracted Data: [object Object]","timestamp":"2025-01-13T12:04:34.604Z"}
+{"level":"info","message":"Extracted Data: [object Object]","timestamp":"2025-01-13T12:04:55.708Z"}
+{"level":"info","message":"Extracted Data: [object Object]","timestamp":"2025-01-13T12:05:14.295Z"}
+{"level":"error","message":"(node:14864) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)","timestamp":"2025-01-13T12:06:14.290Z"}
+{"level":"info","message":"Server is running on http://localhost:3000","timestamp":"2025-01-13T12:06:14.300Z"}
+{"level":"info","message":"Extracted Data: [object Object]","timestamp":"2025-01-13T12:06:37.341Z"}
+{"level":"info","message":"Extracted Data: [object Object]","timestamp":"2025-01-13T12:07:16.933Z"}
+{"level":"error","message":"(node:28776) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)","timestamp":"2025-01-13T12:08:44.004Z"}
+{"level":"info","message":"Server is running on http://localhost:3000","timestamp":"2025-01-13T12:08:44.010Z"}
+{"level":"info","message":"Extracted Data (Regex): [object Object]","timestamp":"2025-01-13T12:09:06.771Z"}
+{"level":"info","message":"Extracted Data (Regex): [object Object]","timestamp":"2025-01-13T12:09:31.498Z"}
+{"level":"error","message":"(node:18520) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)","timestamp":"2025-01-13T12:12:05.289Z"}
+{"level":"info","message":"Server is running on http://localhost:3000","timestamp":"2025-01-13T12:12:05.308Z"}
+{"level":"info","message":"Extracted Data (Regex): [object Object]","timestamp":"2025-01-13T12:12:26.586Z"}
+{"level":"info","message":"Extracted Data (Regex): [object Object]","timestamp":"2025-01-13T12:16:01.860Z"}
+{"level":"error","message":"(node:32344) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)","timestamp":"2025-01-13T12:16:11.217Z"}
+{"level":"info","message":"Server is running on http://localhost:3000","timestamp":"2025-01-13T12:16:11.227Z"}
+{"level":"info","message":"Extracted Data (Regex): [object Object]","timestamp":"2025-01-13T12:16:30.666Z"}
+{"level":"error","message":"(node:1096) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)","timestamp":"2025-01-14T14:27:00.231Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-14T14:27:00.249Z"}
+{"level":"info","message":"Received scrape request for URL: https://www.autovalue.gr/","timestamp":"2025-01-14T14:27:07.715Z"}
+{"level":"info","message":"Launching Puppeteer to fetch: https://www.autovalue.gr/","timestamp":"2025-01-14T14:27:07.716Z"}
+{"level":"error","message":"Error fetching rendered HTML: Navigating frame was detached","timestamp":"2025-01-14T14:27:21.706Z"}
+{"level":"error","message":"Error processing the scraping request: Failed to fetch the webpage content.","timestamp":"2025-01-14T14:27:21.707Z"}
+{"level":"info","message":"Received scrape request for URL: https://www.autovalue.gr/","timestamp":"2025-01-14T14:27:25.623Z"}
+{"level":"info","message":"Launching Puppeteer to fetch: https://www.autovalue.gr/","timestamp":"2025-01-14T14:27:25.624Z"}
+{"level":"error","message":"Error fetching rendered HTML: Navigating frame was detached","timestamp":"2025-01-14T14:27:27.028Z"}
+{"level":"error","message":"Error processing the scraping request: Failed to fetch the webpage content.","timestamp":"2025-01-14T14:27:27.028Z"}
+{"level":"info","message":"Received scrape request for URL: https://www.autovalue.gr/","timestamp":"2025-01-14T14:31:57.170Z"}
+{"level":"info","message":"Launching Puppeteer to fetch: https://www.autovalue.gr/","timestamp":"2025-01-14T14:31:57.171Z"}
+{"level":"error","message":"Error fetching rendered HTML: Navigating frame was detached","timestamp":"2025-01-14T14:31:59.628Z"}
+{"level":"error","message":"Error processing the scraping request: Failed to fetch the webpage content.","timestamp":"2025-01-14T14:31:59.628Z"}
+{"level":"error","message":"(node:13108) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)","timestamp":"2025-01-14T14:32:02.819Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-14T14:32:02.822Z"}
+{"level":"info","message":"Received scrape request for URL: https://www.autovalue.gr/","timestamp":"2025-01-14T14:32:07.334Z"}
+{"level":"info","message":"Launching Puppeteer to fetch: https://www.autovalue.gr/","timestamp":"2025-01-14T14:32:07.334Z"}
+{"level":"info","message":"Successfully fetched HTML content from: https://www.autovalue.gr/","timestamp":"2025-01-14T14:32:13.717Z"}
+{"level":"info","message":"Extracted text content from HTML.","timestamp":"2025-01-14T14:32:13.807Z"}
+{"level":"info","message":"Data extraction using regex completed.","timestamp":"2025-01-14T14:32:13.809Z"}
+{"level":"info","message":"Extracted Data (Regex): [object Object]","timestamp":"2025-01-14T14:32:13.809Z"}
+{"level":"info","message":"Text content truncated to meet the maximum character limit.","timestamp":"2025-01-14T14:32:13.811Z"}
+{"level":"info","message":"Sending prompt to Groq AI API.","timestamp":"2025-01-14T14:32:13.811Z"}
+{"level":"info","message":"Received response from Groq AI API.","timestamp":"2025-01-14T14:32:14.792Z"}
+{"level":"info","message":"Cleaned AI response: {\n  \"phoneNumbers\": [\"2102828001\"],\n  \"addresses\": [],\n  \"summary\": \"The text appears to be from a Greek website, Autovalue, that sells used cars with warranties, offering services like test drives, general service, and after-sales support. It also provides financing options and the ability to purchase cars online.\"\n}","timestamp":"2025-01-14T14:32:14.794Z"}
+{"level":"info","message":"Parsed AI response: [object Object]","timestamp":"2025-01-14T14:32:14.794Z"}
+{"level":"info","message":"Successfully processed scrape request and responded to the client.","timestamp":"2025-01-14T14:32:14.798Z"}
+{"level":"error","message":"(node:19892) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)","timestamp":"2025-01-14T14:34:21.211Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-14T14:34:21.214Z"}
+{"level":"info","message":"Received scrape request for URL: https://www.autovalue.gr/","timestamp":"2025-01-14T14:34:25.880Z"}
+{"level":"info","message":"Launching Puppeteer to fetch: https://www.autovalue.gr/","timestamp":"2025-01-14T14:34:25.881Z"}
+{"level":"info","message":"Successfully fetched HTML content from: https://www.autovalue.gr/","timestamp":"2025-01-14T14:34:28.816Z"}
+{"level":"info","message":"Extracted text content from HTML.","timestamp":"2025-01-14T14:34:28.971Z"}
+{"level":"info","message":"Data extraction using regex completed.","timestamp":"2025-01-14T14:34:28.974Z"}
+{"level":"info","message":"Extracted Data (Regex): [object Object]","timestamp":"2025-01-14T14:34:28.975Z"}
+{"level":"info","message":"Text content truncated to meet the maximum character limit.","timestamp":"2025-01-14T14:34:28.976Z"}
+{"level":"info","message":"Sending prompt to Groq AI API.","timestamp":"2025-01-14T14:34:28.977Z"}
+{"level":"info","message":"Received response from Groq AI API.","timestamp":"2025-01-14T14:34:29.733Z"}
+{"level":"info","message":"Cleaned AI response: {\n  \"phoneNumbers\": [\"2102828001\"],\n  \"addresses\": [],\n  \"summary\": \"The text appears to be related to a car sales website, Autovalue, discussing the benefits of buying used cars from them, including warranties, financing options, and a wide selection of vehicles.\"\n}","timestamp":"2025-01-14T14:34:29.734Z"}
+{"level":"info","message":"Parsed AI response: [object Object]","timestamp":"2025-01-14T14:34:29.735Z"}
+{"level":"info","message":"Successfully processed scrape request and responded to the client.","timestamp":"2025-01-14T14:34:29.740Z"}
+{"level":"info","message":"Received scrape request for URL: https://peakvelocity.gr/","timestamp":"2025-01-14T14:34:39.258Z"}
+{"level":"info","message":"Launching Puppeteer to fetch: https://peakvelocity.gr/","timestamp":"2025-01-14T14:34:39.258Z"}
+{"level":"error","message":"Σφάλμα κατά την ανάκτηση του αποδιδόμενου HTML: net::ERR_SSL_PROTOCOL_ERROR at https://peakvelocity.gr/","timestamp":"2025-01-14T14:34:50.034Z"}
+{"level":"error","message":"Error processing the scraping request: Αποτυχία ανάκτησης του περιεχομένου της ιστοσελίδας.","timestamp":"2025-01-14T14:34:50.036Z"}
+{"level":"info","message":"Received scrape request for URL: https://peakvelocity.gr/","timestamp":"2025-01-14T14:34:57.363Z"}
+{"level":"info","message":"Launching Puppeteer to fetch: https://peakvelocity.gr/","timestamp":"2025-01-14T14:34:57.363Z"}
+{"level":"info","message":"Successfully fetched HTML content from: https://peakvelocity.gr/","timestamp":"2025-01-14T14:35:00.488Z"}
+{"level":"info","message":"Extracted text content from HTML.","timestamp":"2025-01-14T14:35:00.666Z"}
+{"level":"info","message":"Data extraction using regex completed.","timestamp":"2025-01-14T14:35:00.672Z"}
+{"level":"info","message":"Extracted Data (Regex): [object Object]","timestamp":"2025-01-14T14:35:00.674Z"}
+{"level":"info","message":"Text content truncated to meet the maximum character limit.","timestamp":"2025-01-14T14:35:00.674Z"}
+{"level":"info","message":"Sending prompt to Groq AI API.","timestamp":"2025-01-14T14:35:00.674Z"}
+{"level":"info","message":"Received response from Groq AI API.","timestamp":"2025-01-14T14:35:01.179Z"}
+{"level":"info","message":"Cleaned AI response: {\n  \"phoneNumbers\": [],\n  \"addresses\": [],\n  \"summary\": \"The text appears to be a website or platform for fitness and martial arts training, providing options for users to find trainers, become trainers, and engage in online training sessions.\"\n}","timestamp":"2025-01-14T14:35:01.180Z"}
+{"level":"info","message":"Parsed AI response: [object Object]","timestamp":"2025-01-14T14:35:01.181Z"}
+{"level":"info","message":"Successfully processed scrape request and responded to the client.","timestamp":"2025-01-14T14:35:01.183Z"}
+{"level":"info","message":"Received scrape request for URL: https://peakvelocity.gr/","timestamp":"2025-01-14T14:35:07.296Z"}
+{"level":"info","message":"Launching Puppeteer to fetch: https://peakvelocity.gr/","timestamp":"2025-01-14T14:35:07.297Z"}
+{"level":"info","message":"Successfully fetched HTML content from: https://peakvelocity.gr/","timestamp":"2025-01-14T14:35:13.206Z"}
+{"level":"info","message":"Extracted text content from HTML.","timestamp":"2025-01-14T14:35:13.336Z"}
+{"level":"info","message":"Data extraction using regex completed.","timestamp":"2025-01-14T14:35:13.338Z"}
+{"level":"info","message":"Extracted Data (Regex): [object Object]","timestamp":"2025-01-14T14:35:13.340Z"}
+{"level":"info","message":"Text content truncated to meet the maximum character limit.","timestamp":"2025-01-14T14:35:13.340Z"}
+{"level":"info","message":"Sending prompt to Groq AI API.","timestamp":"2025-01-14T14:35:13.341Z"}
+{"level":"info","message":"Received response from Groq AI API.","timestamp":"2025-01-14T14:35:13.831Z"}
+{"level":"info","message":"Cleaned AI response: {\n  \"phoneNumbers\": [],\n  \"addresses\": [],\n  \"summary\": \"The text appears to be a website or platform for fitness and martial arts training, offering services for gyms, trainers, and clients to connect and grow, with various types of trainers and training options available.\"\n}","timestamp":"2025-01-14T14:35:13.832Z"}
+{"level":"info","message":"Parsed AI response: [object Object]","timestamp":"2025-01-14T14:35:13.833Z"}
+{"level":"info","message":"Successfully processed scrape request and responded to the client.","timestamp":"2025-01-14T14:35:13.836Z"}
+{"level":"error","message":"(node:8676) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)","timestamp":"2025-01-14T14:39:54.529Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-14T14:39:54.534Z"}
+{"level":"info","message":"Received scrape request for URL: https://www.autovalue.gr/","timestamp":"2025-01-14T14:39:57.872Z"}
+{"level":"info","message":"Launching Puppeteer to fetch: https://www.autovalue.gr/","timestamp":"2025-01-14T14:39:57.873Z"}
+{"level":"info","message":"Successfully fetched HTML content from: https://www.autovalue.gr/","timestamp":"2025-01-14T14:40:02.400Z"}
+{"level":"info","message":"Extracted text content from HTML.","timestamp":"2025-01-14T14:40:02.523Z"}
+{"level":"info","message":"Data extraction using regex completed.","timestamp":"2025-01-14T14:40:02.527Z"}
+{"level":"info","message":"Extracted Data (Regex): [object Object]","timestamp":"2025-01-14T14:40:02.527Z"}
+{"level":"info","message":"Text content truncated to meet the maximum character limit.","timestamp":"2025-01-14T14:40:02.528Z"}
+{"level":"info","message":"Sending prompt to Groq AI API.","timestamp":"2025-01-14T14:40:02.529Z"}
+{"level":"info","message":"Received response from Groq AI API.","timestamp":"2025-01-14T14:40:03.271Z"}
+{"level":"info","message":"Cleaned AI response: {\n  \"phoneNumbers\": [\"2102828001\"],\n  \"addresses\": [],\n  \"summary\": \"The text appears to be from a Greek automotive website, Autovalue, discussing their services and benefits for buying and selling used cars, including warranties, financing options, and trade-ins.\"\n}","timestamp":"2025-01-14T14:40:03.272Z"}
+{"level":"info","message":"Parsed AI response: [object Object]","timestamp":"2025-01-14T14:40:03.272Z"}
+{"level":"info","message":"Successfully processed scrape request and responded to the client.","timestamp":"2025-01-14T14:40:03.276Z"}
+{"level":"info","message":"Received scrape request for URL: https://www.aspis-realestate.gr/el/home","timestamp":"2025-01-14T14:40:34.598Z"}
+{"level":"info","message":"Launching Puppeteer to fetch: https://www.aspis-realestate.gr/el/home","timestamp":"2025-01-14T14:40:34.599Z"}
+{"level":"info","message":"Successfully fetched HTML content from: https://www.aspis-realestate.gr/el/home","timestamp":"2025-01-14T14:40:40.539Z"}
+{"level":"info","message":"Extracted text content from HTML.","timestamp":"2025-01-14T14:40:40.799Z"}
+{"level":"info","message":"Data extraction using regex completed.","timestamp":"2025-01-14T14:40:40.821Z"}
+{"level":"info","message":"Extracted Data (Regex): [object Object]","timestamp":"2025-01-14T14:40:40.822Z"}
+{"level":"info","message":"Text content truncated to meet the maximum character limit.","timestamp":"2025-01-14T14:40:40.822Z"}
+{"level":"info","message":"Sending prompt to Groq AI API.","timestamp":"2025-01-14T14:40:40.822Z"}
+{"level":"info","message":"Received response from Groq AI API.","timestamp":"2025-01-14T14:40:41.477Z"}
+{"level":"info","message":"Cleaned AI response: {\n  \"phoneNumbers\": [],\n  \"addresses\": [],\n  \"summary\": \"The given text appears to be a snippet from a Greek website, discussing the use of cookies and providing links to various sections such as 'Who we are', 'Store network', 'Properties', 'Assignment', 'Franchise', 'Career opportunities', and 'Contact'. However, the content is truncated and lacks specific details like phone numbers and physical addresses.\"\n}","timestamp":"2025-01-14T14:40:41.477Z"}
+{"level":"info","message":"Parsed AI response: [object Object]","timestamp":"2025-01-14T14:40:41.478Z"}
+{"level":"info","message":"Successfully processed scrape request and responded to the client.","timestamp":"2025-01-14T14:40:41.479Z"}
