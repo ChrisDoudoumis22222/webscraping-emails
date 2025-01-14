@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 3000;
 
 // Configuration
 const MAX_CHAR_LIMIT = 3000; // Maximum characters to send to AI
-const MAX_TOKEN_LIMIT = 8200; // Tokens per minute limit (updated from 6000 to 8200)
+const MAX_TOKEN_LIMIT = 8200; // Tokens per minute limit
 
 // Setup Logging with Winston
 const logger = winston.createLogger({
@@ -34,11 +34,9 @@ const logger = winston.createLogger({
 
 // If not in production, log to the console
 if (process.env.NODE_ENV !== 'production') {
-  logger.add(
-    new winston.transports.Console({
-      format: winston.format.simple(),
-    })
-  );
+  logger.add(new winston.transports.Console({
+    format: winston.format.simple(),
+  }));
 }
 
 // Replace console.log and console.error with Winston
@@ -55,7 +53,7 @@ app.use(morgan('combined')); // HTTP request logging
 const limiter = rateLimit({
   windowMs: 1 * 60 * 1000, // 1 minute window
   max: 10, // limit each IP to 10 requests per windowMs
-  message: 'Too many requests from this IP, please try again after a minute.',
+  message: 'Υπερβατήκατε το όριο αιτημάτων από αυτή την IP. Παρακαλώ δοκιμάστε ξανά μετά από ένα λεπτό.',
 });
 
 app.use(limiter);
@@ -64,7 +62,7 @@ app.use(limiter);
 const GROQ_API_KEY = process.env.GROQ_API_KEY;
 
 if (!GROQ_API_KEY) {
-  console.error('Error: GROQ_API_KEY is not defined in the environment variables.');
+  console.error('Σφάλμα: Το GROQ_API_KEY δεν είναι ορισμένο στις μεταβλητές περιβάλλοντος.');
   process.exit(1); // Exit the application if API key is missing
 }
 
@@ -74,7 +72,7 @@ const groq = new Groq({ apiKey: GROQ_API_KEY });
 // Function to fetch rendered HTML using Puppeteer
 async function fetchRenderedHTML(url) {
   try {
-    console.log(`Launching Puppeteer to fetch: ${url}`);
+    console.log(`Ξεκινώντας το Puppeteer για την ανάκτηση: ${url}`);
     const browser = await puppeteer.launch({
       headless: true,
       args: [
@@ -86,25 +84,29 @@ async function fetchRenderedHTML(url) {
         '--no-zygote',
         '--disable-gpu',
       ],
+      // Optional: Specify executable path if necessary
+      // executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
     });
 
     const page = await browser.newPage();
 
-    // Increase navigation timeout to 120 seconds
-    page.setDefaultNavigationTimeout(120000);
-
-    // Set a custom user agent (optional but can help bypass basic bot detection)
+    // Set a custom user agent to mimic a real browser
     await page.setUserAgent(
       'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 ' +
-        '(KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
+      '(KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
     );
 
-    // Navigate using 'domcontentloaded' to ensure basic HTML is loaded
+    // Increase navigation timeout to 120 seconds
+    await page.setDefaultNavigationTimeout(120000);
+
+    console.log('Μεταβαίνουμε στην ιστοσελίδα...');
     await page.goto(url, { waitUntil: 'domcontentloaded' });
 
+    console.log('Ανάκτηση περιεχομένου HTML...');
     const html = await page.content();
+
     await browser.close();
-    console.log(`Successfully fetched HTML content from: ${url}`);
+    console.log(`Επιτυχής ανάκτηση περιεχομένου από: ${url}`);
     return html;
   } catch (error) {
     console.error('Σφάλμα κατά την ανάκτηση του αποδιδόμενου HTML:', error.message);
@@ -117,7 +119,7 @@ async function fetchRenderedHTML(url) {
 function extractTextContent(htmlContent) {
   const $ = cheerio.load(htmlContent);
   const text = $('body').text();
-  console.log('Extracted text content from HTML.');
+  console.log('Εξαγωγή κειμένου από το HTML.');
   return text;
 }
 
@@ -126,35 +128,36 @@ function generatePrompt(textContent) {
   // Truncate the textContent to MAX_CHAR_LIMIT
   let truncatedText = textContent;
   if (textContent.length > MAX_CHAR_LIMIT) {
-    truncatedText = textContent.substring(0, MAX_CHAR_LIMIT) + '... [Content Truncated]';
-    console.log('Text content truncated to meet the maximum character limit.');
+    truncatedText = textContent.substring(0, MAX_CHAR_LIMIT) + '... [Περιεχόμενο Περιορίστηκε]';
+    console.log('Το περιεχόμενο του κειμένου περιορίστηκε για να πληροί το μέγιστο όριο χαρακτήρων.');
   }
 
-  return `Please analyze the following text and perform the following tasks:
+  return `Παρακαλώ αναλύστε το ακόλουθο κείμενο και εκτελέστε τις παρακάτω εργασίες:
 
-1. **Extract Information:**
-   - **Phone Numbers:** Identify and list all phone numbers.
-   - **Physical Addresses:** Identify and list all physical addresses.
+1. **Εξαγωγή Πληροφοριών:**
+   - **Διευθύνσεις Email:** Αναγνωρίστε και παραθέστε όλες τις διευθύνσεις email.
+   - **Αριθμοί Τηλεφώνου:** Αναγνωρίστε και παραθέστε όλους τους αριθμούς τηλεφώνου.
+   - **Φυσικές Διευθύνσεις:** Αναγνωρίστε και παραθέστε όλες τις φυσικές διευθύνσεις.
 
-2. **Summary:**
-   - Provide a brief summary of the main points or content of the text.
+2. **Περίληψη:**
+   - Παρέχετε μια σύντομη περίληψη των κύριων σημείων ή του περιεχομένου του κειμένου.
 
-**Response Format:**
-Respond exclusively with a JSON object containing the following fields:
-- \`phoneNumbers\`: An array of extracted phone numbers.
-- \`addresses\`: An array of extracted physical addresses.
-- \`summary\`: A string containing the brief summary.
+**Μορφή Απάντησης:**
+Απαντήστε αποκλειστικά με ένα αντικείμενο JSON που περιέχει τα ακόλουθα πεδία:
+- \`phoneNumbers\`: Ένα πίνακα με εξαγόμενους αριθμούς τηλεφώνου.
+- \`addresses\`: Ένα πίνακα με εξαγόμενες φυσικές διευθύνσεις.
+- \`summary\`: Ένα κείμενο που περιέχει τη σύντομη περίληψη.
 
-**Example Response:**
+**Παράδειγμα Απάντησης:**
 \`\`\`json
 {
-  "phoneNumbers": ["+1-234-567-8900"],
-  "addresses": ["123 Main St, Anytown, USA"],
-  "summary": "This text discusses the upcoming company meeting and contact information."
+  "phoneNumbers": ["+30-123-456-7890"],
+  "addresses": ["Οδός Παπαδιαμάντη 15, Αθήνα, Ελλάδα"],
+  "summary": "Το κείμενο συζητά την επερχόμενη εταιρική συνάντηση και τις πληροφορίες επικοινωνίας."
 }
 \`\`\`
 
-**Text to Analyze:**
+**Κείμενο προς Ανάλυση:**
 \`\`\`
 ${truncatedText}
 \`\`\`
@@ -164,7 +167,7 @@ ${truncatedText}
 // Function to interact with Groq AI API with Exponential Backoff
 async function getGroqChatCompletion(prompt, retries = 3, delay = 1000) {
   try {
-    console.log('Sending prompt to Groq AI API.');
+    console.log('Αποστολή προτροπής στο Groq AI API.');
     const chatCompletion = await groq.chat.completions.create({
       messages: [
         {
@@ -176,16 +179,16 @@ async function getGroqChatCompletion(prompt, retries = 3, delay = 1000) {
     });
 
     const responseContent = chatCompletion.choices[0]?.message?.content || '';
-    console.log('Received response from Groq AI API.');
+    console.log('Λήψη απάντησης από το Groq AI API.');
     return responseContent;
   } catch (error) {
     if (error.code === 'rate_limit_exceeded' && retries > 0) {
-      console.warn(`Rate limit exceeded. Retrying in ${delay}ms... (${retries} retries left)`);
+      console.warn(`Το όριο ρυθμού έχει υπερβεί. Προσπάθεια ξανά σε ${delay}ms... (${retries} επαναλήψεις απομένουν)`);
       await new Promise((res) => setTimeout(res, delay));
       return getGroqChatCompletion(prompt, retries - 1, delay * 2);
     } else {
-      console.error('Error communicating with Groq AI API:', error.message);
-      throw new Error(error.message || 'Failed to communicate with Groq AI API.');
+      console.error('Σφάλμα στην επικοινωνία με το Groq AI API:', error.message);
+      throw new Error(error.message || 'Αποτυχία επικοινωνίας με το Groq AI API.');
     }
   }
 }
@@ -220,7 +223,7 @@ function extractData(textContent) {
     extracted[key] = matches ? matches : [];
   }
 
-  console.log('Data extraction using regex completed.');
+  console.log('Εξαγωγή δεδομένων χρησιμοποιώντας regex ολοκληρώθηκε.');
   return extracted;
 }
 
@@ -229,24 +232,24 @@ app.post('/scrape', async (req, res) => {
   const { url } = req.body;
 
   if (!url) {
-    console.error('No URL provided in the request body.');
-    return res.status(400).json({ error: 'URL is required.' });
+    console.error('Σφάλμα: Δεν παρέχεται URL στο σώμα του αιτήματος.');
+    return res.status(400).json({ error: 'Το URL είναι απαραίτητο.' });
   }
 
   try {
-    console.log(`Received scrape request for URL: ${url}`);
+    console.log(`Λήψη αιτήματος για scraping του URL: ${url}`);
 
     // Step 1: Fetch the rendered webpage content using Puppeteer
     const htmlContent = await fetchRenderedHTML(url);
+    console.log('HTML περιεχόμενο ανακτήθηκε επιτυχώς.');
 
     // Step 2: Extract text content from the webpage
     const textContent = extractTextContent(htmlContent);
+    console.log('Εξαγωγή κειμένου από το HTML ολοκληρώθηκε.');
 
     // Step 3: Extract data using improved regex patterns
     const extractedData = extractData(textContent);
-
-    // Log the extracted data for debugging
-    console.log('Extracted Data (Regex):', extractedData);
+    console.log('Δεδομένα εξαγωγής (Regex):', extractedData);
 
     // Step 4: Generate a fixed prompt with the provided text content
     const prompt = generatePrompt(textContent);
@@ -255,22 +258,21 @@ app.post('/scrape', async (req, res) => {
     const aiResponse = await getGroqChatCompletion(prompt);
 
     if (!aiResponse) {
-      console.error('Empty response received from Groq AI API.');
-      // Return the Greek error message if the AI response is empty
+      console.error('Λήψη κενής απάντησης από το Groq AI API.');
       throw new Error('Αποτυχία ανάκτησης του περιεχομένου της ιστοσελίδας.');
     }
 
     // Step 6: Clean the AI response
     const cleanedResponse = cleanResponse(aiResponse);
-    console.log('Cleaned AI response:', cleanedResponse);
+    console.log('Καθαρισμένη απάντηση από το AI:', cleanedResponse);
 
     // Step 7: Parse the cleaned response as JSON
     let parsedResponse = {};
     try {
       parsedResponse = JSON.parse(cleanedResponse);
-      console.log('Parsed AI response:', parsedResponse);
+      console.log('Αποδεσμευμένη απάντηση από το AI:', parsedResponse);
     } catch (jsonError) {
-      console.error('JSON Parsing Error:', jsonError.message);
+      console.error('Σφάλμα κατά την ανάλυση του JSON:', jsonError.message);
       throw new Error('Αποτυχία ανάκτησης του περιεχομένου της ιστοσελίδας.');
     }
 
@@ -282,7 +284,7 @@ app.post('/scrape', async (req, res) => {
       !Array.isArray(addresses) ||
       typeof summary !== 'string'
     ) {
-      console.error('Invalid response structure from Groq AI API.');
+      console.error('Μη έγκυρη δομή απάντησης από το Groq AI API.');
       throw new Error('Αποτυχία ανάκτησης του περιεχομένου της ιστοσελίδας.');
     }
 
@@ -296,17 +298,14 @@ app.post('/scrape', async (req, res) => {
       summary,
     });
 
-    console.log('Successfully processed scrape request and responded to the client.');
+    console.log('Απάντηση αποσταλεί επιτυχώς στον πελάτη.');
   } catch (error) {
-    // Return Greek error message in the response if an error occurs
-    console.error('Error processing the scraping request:', error.message);
-    res.status(500).json({
-      error: error.message || 'Αποτυχία ανάκτησης του περιεχομένου της ιστοσελίδας.',
-    });
+    console.error('Σφάλμα κατά την επεξεργασία του αιτήματος scraping:', error.message);
+    res.status(500).json({ error: error.message || 'Αποτυχία επεξεργασίας του αιτήματος scraping.' });
   }
 });
 
 // Start the server
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Ο διακομιστής τρέχει στη θύρα ${PORT}`);
 });

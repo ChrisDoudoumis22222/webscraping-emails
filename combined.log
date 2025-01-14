@@ -123,3 +123,17 @@
 {"level":"info","message":"Cleaned AI response: {\n  \"phoneNumbers\": [],\n  \"addresses\": [],\n  \"summary\": \"The given text appears to be a snippet from a Greek website, discussing the use of cookies and providing links to various sections such as 'Who we are', 'Store network', 'Properties', 'Assignment', 'Franchise', 'Career opportunities', and 'Contact'. However, the content is truncated and lacks specific details like phone numbers and physical addresses.\"\n}","timestamp":"2025-01-14T14:40:41.477Z"}
 {"level":"info","message":"Parsed AI response: [object Object]","timestamp":"2025-01-14T14:40:41.478Z"}
 {"level":"info","message":"Successfully processed scrape request and responded to the client.","timestamp":"2025-01-14T14:40:41.479Z"}
+{"level":"error","message":"(node:14520) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)","timestamp":"2025-01-14T14:56:38.358Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-14T14:56:38.362Z"}
+{"level":"info","message":"Received scrape request for URL: https://www.autovalue.gr/","timestamp":"2025-01-14T14:56:48.697Z"}
+{"level":"info","message":"Launching Puppeteer to fetch: https://www.autovalue.gr/","timestamp":"2025-01-14T14:56:48.698Z"}
+{"level":"info","message":"Successfully fetched HTML content from: https://www.autovalue.gr/","timestamp":"2025-01-14T14:56:52.514Z"}
+{"level":"info","message":"Extracted text content from HTML.","timestamp":"2025-01-14T14:56:52.642Z"}
+{"level":"info","message":"Data extraction using regex completed.","timestamp":"2025-01-14T14:56:52.645Z"}
+{"level":"info","message":"Extracted Data (Regex): [object Object]","timestamp":"2025-01-14T14:56:52.646Z"}
+{"level":"info","message":"Text content truncated to meet the maximum character limit.","timestamp":"2025-01-14T14:56:52.648Z"}
+{"level":"info","message":"Sending prompt to Groq AI API.","timestamp":"2025-01-14T14:56:52.649Z"}
+{"level":"info","message":"Received response from Groq AI API.","timestamp":"2025-01-14T14:56:53.327Z"}
+{"level":"info","message":"Cleaned AI response: {\n  \"phoneNumbers\": [\"2102828001\"],\n  \"addresses\": [],\n  \"summary\": \"The text appears to be a promotional page for a used car sales company, highlighting the benefits of purchasing from them, including warranty, flexible inspection options, free transportation, and a return policy.\"\n}","timestamp":"2025-01-14T14:56:53.328Z"}
+{"level":"info","message":"Parsed AI response: [object Object]","timestamp":"2025-01-14T14:56:53.329Z"}
+{"level":"info","message":"Successfully processed scrape request and responded to the client.","timestamp":"2025-01-14T14:56:53.333Z"}
